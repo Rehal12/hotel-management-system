@@ -221,7 +221,66 @@ erDiagram
 ---
 
 ## 💡 What I Learned
+1. JWT Authentication Lifecycle
 
-1.  **JWT Authentication Lifecycle:** Handling access and refresh token pairs in full-stack setups, including storing tokens securely and executing transparent token rotations.
-2.  **Concurrency & Conflict Checking:** Managing race conditions and date overlaps in room booking calendars directly in database queries using exclusion conditions.
-3.  **Cross-Platform Network Management:** Adapting localhost configurations dynamically to resolve Android emulator network loops.
+Handling access and refresh token-based authentication in a full-stack system, including:
+
+Secure token storage strategy
+Token validation via middleware
+Automatic session handling
+Transparent token refresh mechanism without user interruption
+
+2. Concurrency & Booking Conflict Management
+
+Managing race conditions in hotel room bookings by:
+
+Preventing double booking using atomic database-level validation
+Date overlap detection using optimized query constraints
+Ensuring consistency in high-concurrency booking scenarios
+Maintaining data integrity under simultaneous requests
+
+3. Cross-Platform Network Handling
+
+Resolving mobile-to-backend connectivity issues by:
+
+Configuring dynamic API base URLs for Android emulator & physical devices
+Handling localhost vs IP-based network switching
+Fixing emulator network loopback issues (10.0.2.2 usage)
+Ensuring stable API communication across platforms
+
+
+4. REST API Design & Layered Architecture
+Structured backend using MVC pattern (Models, Controllers, Routes)
+Separation of business logic from API layer
+Clean and scalable API endpoint design
+Reusable service-based logic for maintainability
+
+5. State Management & UI Synchronization (Flutter)
+Efficient state handling using provider-based architecture
+Real-time UI updates after booking and cancellation actions
+Preventing stale UI rendering through proper refresh cycles
+Managing global vs local state separation
+
+6. Database Design & Normalization (MySQL)
+Structured relational schema for users, rooms, bookings, and payments
+Foreign key relationships for data consistency
+Optimized queries for booking lookup and filtering
+Proper normalization to avoid redundancy
+
+7. Error Handling & Resilient API Design
+Centralized error handling for API responses
+Proper HTTP status code management (400, 401, 404, 500)
+Graceful failure handling in frontend UI
+Preventing silent failures in async operations
+
+8. Secure Configuration Management
+Environment variable usage via .env
+Separation of sensitive credentials from source code
+Secure backend configuration practices
+Prevention of secret leakage in version control
+
+9. Full-Stack Integration Flow
+Flutter frontend communicating with Node.js REST APIs
+JSON-based request/response cycle
+Real-time data synchronization between client and server
+Clean separation of frontend and backend responsibilities
